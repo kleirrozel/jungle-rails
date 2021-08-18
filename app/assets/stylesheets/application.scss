@@ -24,7 +24,10 @@ li.list-group-item {
 span.badge {
   font-size: 1.25em;
   min-width: 3em;
-  color: #FFFFFF;
   background: #2b2b2b;
-  text-decoration: none !important;
+}
+
+.badge a {
+  color: #FFFFFF;
+  text-decoration: none;
 }
