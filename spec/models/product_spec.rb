@@ -15,31 +15,31 @@ RSpec.describe Product, type: :model do
     end
 
     it 'should not save when the name field is left empty or blank' do
-      @category = Category.new(name: 'Pet Supplies')
-      @product = Product.new(name: nil, price: 45.00, quantity: 12, category: @category)
+      @product = Product.new
+      @product.save
 
-      expect(@product.errors[:name]).to be_empty
+      expect(@product.errors.messages[:name]).not_to be_empty
     end
 
     it 'should not save when the price field is left empty or blank' do
-      @category = Category.new(name: 'Pet Supplies')
-      @product = Product.new(name: 'Carrot Chew Toy', price: nil, quantity: 12, category: @category)
+      @product = Product.new
+      @product.save
 
-      expect(@product.errors[:price]).to be_empty
+      expect(@product.errors.messages[:price]).not_to be_empty
     end
 
     it 'should not save when the quantity field is left empty or blank' do
-      @category = Category.new(name: 'Pet Supplies')
-      @product = Product.new(name: 'Carrot Chew Toy', price: 45.00, quantity: nil, category: @category)
-      
-      expect(@product.errors[:quantity]).to be_empty
+      @product = Product.new
+      @product.save
+
+      expect(@product.errors.messages[:quantity]).not_to be_empty
     end
 
     it 'should not save when the quantity field is left empty or blank' do
-      @category = nil
-      @product = Product.new(name: 'Carrot Chew Toy', price: 45.00, quantity: nil, category: @category)
-      
-      expect(@product.errors[:category]).to be_empty
+      @product = Product.new
+      @product.save
+
+      expect(@product.errors.messages[:category]).not_to be_empty
     end
   end
 end
