@@ -19,7 +19,7 @@ RSpec.feature "Visitor navigates to product details page", type: :feature, js: t
 
   scenario "They see the product description page" do
     visit root_path
-    first('article.product').find_link('Details')click 'Details'
+    first('article.product').find_link('Details').click 'Details'
 
     # commented out b/c it's for debugging only
     save_and_open_screenshot
